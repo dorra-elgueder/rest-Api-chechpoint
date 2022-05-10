@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
-const { required } = require("nodemon/lib/config");
 const users = new mongoose.Schema({
-name:string;
-email:{
-    type:string;;
-    required:true,
-    unique:true,
-}
-passwords:string,
-
+  name: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: String,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-module.export=mongoose.models("user", users);
-
-
+module.exports = mongoose.model("user", users);
